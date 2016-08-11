@@ -1,0 +1,11 @@
+machine:
+  services:
+    - docker
+
+dependencies:
+  override:
+    - docker build -t brianhays/curl .
+
+test:
+  override:
+    - docker run brianhays/curl --http2 -s -I https://www.cloudflare.com
