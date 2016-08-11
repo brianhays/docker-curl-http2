@@ -9,3 +9,10 @@ dependencies:
 test:
   override:
     - docker run brianhays/curl --http2 -s -I https://www.cloudflare.com
+
+deployment:
+  hub:
+    branch: master
+    commands:
+      - docker login -u $DOCKER_USER -p $DOCKER_PASS
+      - docker push brianhays/curl
